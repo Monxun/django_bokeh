@@ -3,4 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('line', views.line, name='linechart'),
+    path('multi', views.multi, name='multi'),
 ]

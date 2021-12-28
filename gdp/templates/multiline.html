@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+    <p class='lead'>GDP by country</p>
+    <div class="row">
+        <div id="linechart" class="col-10">
+            {% include 'partials/gdp-bar.html' %}
+        </div>
+        <div class="col-2">
+            <select id="country_1" 
+                    class="custom-select" 
+                    name="country_1" 
+                    autocomplete="off"
+                    hx-get="{% url 'multi' %}"
+                    hx-target="#linechart">
+                {% for c in countries %}
+                    <option value="{{c}}" {% if c1 == c %} selected {% endif %}>{{c}}</option>
+                {% endfor %}
+            </select>
+            <select id="country_2" 
+                    class="custom-select" 
+                    name="country_2" 
+                    autocomplete="off"
+                    hx-get="{% url 'multi' %}"
+                    hx-target="#linechart">
+                {% for c in countries %}
+                    <option value="{{c}}" {% if c2 == c %} selected {% endif %}>{{c}}</option>
+                {% endfor %}
+            </select>
+            <select id="country_3" 
+                    class="custom-select" 
+                    name="country_3" 
+                    autocomplete="off"
+                    hx-get="{% url 'multi' %}"
+                    hx-target="#linechart">
+                {% for c in countries %}
+                    <option value="{{c}}" {% if c3 == c %} selected {% endif %}>{{c}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+{% endblock %}

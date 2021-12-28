@@ -1,0 +1,5 @@
+# Django Extensions Command
+python manage.py shell_plus
+
+# Grab Queryset in Shell Plus
+GDP.objects.values_list('country', flat=True).distinct()
